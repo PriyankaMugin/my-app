@@ -7,7 +7,7 @@ node{
       sh "${mvnHome}/bin/mvn clean package"
 	  sh 'mv target/myweb*.war target/newapp.war'
    }
-   stage('Build Docker Image'){
+   stage('Build Docker Images'){
    sh 'docker build -t priyait1995/myweb:0.0.2 .'  }
    stage('Push Docker Image'){
    withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
@@ -29,7 +29,7 @@ node{
 	}
 }
 
-stage('Docker deployment'){
+stage('Docker deployment Final'){
    sh 'docker run -d -p 9898:8080 --name tomcattest priyait1995/myweb:0.0.2' 
    }
 }

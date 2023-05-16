@@ -29,7 +29,7 @@ node{
 	}
 }
 
-stage('Docker deployment Final'){
+stage('Docker Deployment Final'){
    sh 'docker run -d -p 9898:8080 --name tomcattest priyait1995/myweb:0.0.2' 
    }
 }

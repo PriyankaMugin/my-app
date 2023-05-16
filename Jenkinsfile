@@ -9,7 +9,7 @@ node{
    }
    stage('Build Docker Image'){
    sh 'docker build -t priyait1995/myweb:0.0.2 .'  }
-   stage('Push Docker Image'){
+   stage('Push Docker Images'){
    withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
    sh "docker login -u priyait1995 -p ${dockerPassword}"    }
    sh 'docker push priyait1995/myweb:0.0.2'

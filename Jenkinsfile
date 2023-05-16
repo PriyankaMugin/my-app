@@ -7,7 +7,7 @@ node{
       sh "${mvnHome}/bin/mvn clean package"
 	  sh 'mv target/myweb*.war target/newapp.war'
    }
-   stage('Build Docker Images'){
+   stage('Build Docker Image'){
    sh 'docker build -t priyait1995/myweb:0.0.2 .'  }
    stage('Push Docker Image'){
    withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
